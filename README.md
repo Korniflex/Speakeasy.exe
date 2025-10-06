@@ -1,175 +1,176 @@
-# 🗣️ Speakeasy – Translation, Text-to-Speech & Document Reader
+# 🗣️ Speakeasy – Translation and Text-to-Speech Desktop App
 
-This repository contains **Speakeasy**, a Python-based desktop application that allows users to **translate text, generate audio output, and save translations** — all through a user-friendly graphical interface. The application can read text from multiple file types (including PDFs, Word documents, Excel files, and even images via OCR), translate them using the **DeepL API**, convert the translated text into speech with **gTTS**, and manage saved translations in a local database.
+## Overview
 
----
+Speakeasy is a Python-based desktop application that combines text translation, speech synthesis, and document reading in one intuitive tool. It allows you to load text from various sources (including PDFs, Word documents, Excel sheets, and even images via OCR), translate it using the DeepL API, convert it into speech with gTTS, and store translations for future reference — all from a simple graphical interface.
 
-## 📚 Table of Contents
-
-- [English Version](#english-version)
-  - [Project Overview](#project-overview)
-  - [Features](#features)
-  - [Tech Stack](#tech-stack)
-  - [Project Structure](#project-structure)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Future Improvements](#future-improvements)
-- [Deutsche Version](#deutsche-version)
+The project was developed to practice end-to-end application design: from data extraction and processing to API integration and user interaction. It demonstrates how Python can be used to build real-world tools beyond scripts and notebooks.
 
 ---
 
-## 🇬🇧 English Version
+## ✨ Key Features
 
-### Project Overview
+- **File reading:** Import text from `.txt`, `.csv`, `.pdf`, `.docx`, `.xlsx` or image files (`.jpg`, `.png`)  
+- **Translation:** Translate text into multiple languages using the [DeepL API](https://www.deepl.com/pro)  
+- **Speech synthesis:** Convert translations into spoken audio with [gTTS](https://pypi.org/project/gTTS/) and play them directly in the app  
+- **Storage:** Save translations locally and retrieve them later  
+- **User interface:** Simple, responsive desktop GUI built with Tkinter and ttkthemes  
 
-**Speakeasy** is a desktop application built with Python and Tkinter that brings together translation, speech synthesis, and document reading. The goal of this project is to make text processing more accessible by allowing users to load text from various sources, translate it into multiple languages, listen to the result, and save it for future reference.
+---
 
-### ✨ Features
+## 🧰 Tech Stack
 
-- 📄 **File Import:** Read text from `.txt`, `.csv`, `.pdf`, `.docx`, `.xlsx`, and image files (`.jpg`, `.png`) using **PyPDF2**, **pytesseract**, and **PIL**  
-- 🌐 **Translation:** Translate text into multiple languages using the **DeepL API**  
-- 🔊 **Text-to-Speech:** Generate spoken audio with **gTTS** and play it directly in the app using **pygame**  
-- 💾 **Save & Manage:** Store translated texts locally as `.txt` files and retrieve them anytime  
-- 🖥️ **User-Friendly GUI:** Built with **Tkinter** and **ttkthemes** for a clean and intuitive interface  
+- **Language:** Python (≥3.10)  
+- **Core Libraries:** Tkinter, pandas, PyPDF2, python-docx, Pillow  
+- **APIs:** DeepL (translation), gTTS (text-to-speech)  
+- **Additional Tools:** pytesseract (OCR), pygame (audio playback)
 
-### 🧰 Tech Stack
+---
 
-- **Languages & Frameworks:** Python, Tkinter  
-- **APIs & Libraries:**  
-  - Translation: [DeepL API](https://www.deepl.com/pro)  
-  - Text-to-Speech: [gTTS (Google Text-to-Speech)](https://pypi.org/project/gTTS/)  
-  - Optical Character Recognition: [pytesseract](https://pypi.org/project/pytesseract/)  
-  - Document Processing: PyPDF2, python-docx, pandas  
-  - Audio Playback: pygame  
-  - Image Processing: PIL (Pillow)  
-
-### 📁 Project Structure
+## 📁 Project Structure
 
 ```
 ├── SpeakEasy_1.0.py            # Main application script  
 ├── translations.json           # Stored translation data  
 ├── uebersetzungen/             # Folder containing saved translations  
 ├── requirements.txt            # Dependencies  
-├── README.md                   # Documentation  
-└── assets/                     # Logo and additional resources  
+└── README.md                   # Documentation  
 ```
 
-### ⚙️ Installation
+---
 
-1. Clone this repository:  
-   ```bash
-   git clone https://github.com/yourusername/speakeasy.git
-   cd speakeasy
-   ```
+## ⚙️ Installation
 
-2. Install dependencies:  
-   ```bash
-   pip install -r requirements.txt
-   ```
+### 1. Clone the repository
+```bash
+git clone https://github.com/yourusername/speakeasy.git
+cd speakeasy
+```
 
-3. Add your **DeepL API key** in the script:  
-   ```python
-   deepl_api_key = "YOUR_API_KEY"
-   ```
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt
+```
 
-4. Make sure [Tesseract OCR](https://github.com/tesseract-ocr/tesseract) is installed and its path is correctly configured in the script.
+### 3. Configure your DeepL API key
+Open `SpeakEasy_1.0.py` and insert your API key:
+```python
+deepl_api_key = "YOUR_API_KEY"
+```
 
-### ▶️ Usage
+### 4. Install Tesseract OCR
+For OCR functionality (text extraction from images), [download and install Tesseract](https://github.com/tesseract-ocr/tesseract).  
+Make sure the executable path is correctly set in your environment or directly in the script.
 
-Run the application:  
+---
+
+## ▶️ Usage
+
+Run the app:
 ```bash
 python SpeakEasy_1.0.py
 ```
 
-From the GUI you can:  
-- Select and load a file  
+You can then:
+- Select a file and extract its content  
 - Translate text into your chosen language  
-- Generate and play audio output  
-- Save translations locally
-
-### 🔮 Future Improvements
-
-- Export translations to CSV or database  
-- Add text summarization features  
-- Integrate voice input and speech recognition  
-- Package as a standalone cross-platform desktop application
+- Generate audio output and play it directly  
+- Save translations for later use  
 
 ---
 
-## 🇩🇪 Deutsche Version
+## 🔮 Future Improvements
 
-### Projektübersicht
+- Add CSV/database export for saved translations  
+- Include text summarization and sentiment analysis features  
+- Integrate voice input and speech recognition  
+- Package as a cross-platform desktop application  
 
-**Speakeasy** ist eine Python-Desktopanwendung, die Übersetzung, Sprachausgabe und Texterkennung in einer benutzerfreundlichen Oberfläche vereint. Ziel des Projekts ist es, die Verarbeitung von Texten zu vereinfachen, indem Nutzer Inhalte aus verschiedenen Dateiformaten einlesen, übersetzen, anhören und speichern können.
+---
 
-### ✨ Funktionen
+# 🇩🇪 Speakeasy – Übersetzung und Sprachausgabe für den Desktop
 
-- 📄 **Dateiimport:** Texte aus `.txt`, `.csv`, `.pdf`, `.docx`, `.xlsx` und Bilddateien (`.jpg`, `.png`) einlesen mit **PyPDF2**, **pytesseract** und **PIL**  
-- 🌐 **Übersetzung:** Texte mit der **DeepL API** in verschiedene Sprachen übersetzen  
-- 🔊 **Sprachausgabe:** Audio mit **gTTS** generieren und direkt in der Anwendung abspielen  
-- 💾 **Speichern & Verwalten:** Übersetzungen lokal als `.txt` speichern und jederzeit abrufen  
-- 🖥️ **Benutzeroberfläche:** Klare und intuitive GUI mit **Tkinter** und **ttkthemes**  
+## Überblick
 
-### 🧰 Tech Stack
+Speakeasy ist eine Python-Desktopanwendung, die Übersetzung, Sprachausgabe und Texterkennung in einer intuitiven Oberfläche kombiniert. Texte können aus verschiedenen Formaten (PDF, Word, Excel oder Bilder per OCR) geladen, mit der DeepL API übersetzt, per gTTS in Sprache umgewandelt und lokal gespeichert werden.
 
-- **Programmiersprache & Framework:** Python, Tkinter  
-- **APIs & Bibliotheken:**  
-  - Übersetzung: [DeepL API](https://www.deepl.com/pro)  
-  - Sprachausgabe: [gTTS (Google Text-to-Speech)](https://pypi.org/project/gTTS/)  
-  - Texterkennung: [pytesseract](https://pypi.org/project/pytesseract/)  
-  - Dokumentenverarbeitung: PyPDF2, python-docx, pandas  
-  - Audiowiedergabe: pygame  
-  - Bildverarbeitung: PIL (Pillow)  
+Dieses Projekt zeigt, wie man mit Python vollständige Anwendungen entwickelt – von der Datenextraktion und API-Anbindung bis zur Benutzeroberfläche.
 
-### 📁 Projektstruktur
+---
+
+## ✨ Hauptfunktionen
+
+- **Texterkennung:** Texte aus `.txt`, `.csv`, `.pdf`, `.docx`, `.xlsx` oder Bilddateien (`.jpg`, `.png`) einlesen  
+- **Übersetzung:** Texte mit der [DeepL API](https://www.deepl.com/pro) übersetzen  
+- **Sprachausgabe:** Übersetzungen mit [gTTS](https://pypi.org/project/gTTS/) in Sprache umwandeln und direkt abspielen  
+- **Speicherung:** Übersetzungen lokal speichern und wieder abrufen  
+- **Benutzeroberfläche:** Klare und einfache GUI mit Tkinter und ttkthemes  
+
+---
+
+## 🧰 Technologien
+
+- **Sprache:** Python (≥3.10)  
+- **Bibliotheken:** Tkinter, pandas, PyPDF2, python-docx, Pillow  
+- **APIs:** DeepL (Übersetzung), gTTS (Sprachausgabe)  
+- **Zusätzliche Tools:** pytesseract (OCR), pygame (Audiowiedergabe)
+
+---
+
+## 📁 Projektstruktur
 
 ```
-├── SpeakEasy_1.0.py            # Hauptskript der Anwendung  
-├── translations.json           # Gespeicherte Übersetzungsdaten  
-├── uebersetzungen/             # Ordner mit gespeicherten Übersetzungen  
-├── requirements.txt            # Abhängigkeiten  
-├── README.md                   # Dokumentation  
-└── assets/                     # Logo und weitere Ressourcen  
+├── SpeakEasy_1.0.py  
+├── translations.json  
+├── uebersetzungen/  
+├── requirements.txt  
+└── README.md  
 ```
 
-### ⚙️ Installation
+---
 
-1. Repository klonen:  
-   ```bash
-   git clone https://github.com/yourusername/speakeasy.git
-   cd speakeasy
-   ```
+## ⚙️ Installation
 
-2. Abhängigkeiten installieren:  
-   ```bash
-   pip install -r requirements.txt
-   ```
+### 1. Repository klonen
+```bash
+git clone https://github.com/yourusername/speakeasy.git
+cd speakeasy
+```
 
-3. Deinen **DeepL API-Schlüssel** im Skript eintragen:  
-   ```python
-   deepl_api_key = "DEIN_API_SCHLÜSSEL"
-   ```
+### 2. Abhängigkeiten installieren
+```bash
+pip install -r requirements.txt
+```
 
-4. Stelle sicher, dass [Tesseract OCR](https://github.com/tesseract-ocr/tesseract) installiert ist und der Pfad im Skript korrekt gesetzt ist.
+### 3. DeepL API-Schlüssel konfigurieren
+Öffne `SpeakEasy_1.0.py` und füge deinen API-Schlüssel ein:
+```python
+deepl_api_key = "DEIN_API_KEY"
+```
 
-### ▶️ Verwendung
+### 4. Tesseract OCR installieren
+Für die Texterkennung aus Bildern muss [Tesseract OCR](https://github.com/tesseract-ocr/tesseract) installiert sein.  
+Stelle sicher, dass der Pfad korrekt in deiner Umgebung oder im Skript gesetzt ist.
 
-Starte die Anwendung:  
+---
+
+## ▶️ Verwendung
+
+Anwendung starten:
 ```bash
 python SpeakEasy_1.0.py
 ```
 
-In der GUI kannst du:  
-- Eine Datei auswählen und laden  
-- Texte in die gewünschte Sprache übersetzen  
-- Sprachausgabe erzeugen und abspielen  
-- Übersetzungen lokal speichern
-
-### 🔮 Ausblick
-
-- Export von Übersetzungen in CSV oder Datenbanken  
-- Implementierung einer Textzusammenfassung  
-- Integration von Spracheingabe und Spracherkennung  
-- Bereitstellung einer plattformübergreifenden Desktop-Version
+Funktionen:
+- Datei auswählen und Text extrahieren  
+- Übersetzen und Sprachausgabe erzeugen  
+- Übersetzungen lokal speichern und verwalten  
 
 ---
+
+## 🔮 Ausblick
+
+- Exportfunktion in CSV oder Datenbanken  
+- Textzusammenfassung und Sentimentanalyse  
+- Spracheingabe und Spracherkennung  
+- Bereitstellung als plattformübergreifende Desktop-Anwendung  
